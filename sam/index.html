@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sammmyholic Prints · Frames for your milestones</title>
+<link rel="icon" href="images/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbeeee;--bg2:#f6dede;--card:#fff6f4;--ink:#2b2224;--mute:#6f5f62;--pink:#d9748a;--pink2:#e9a5b3;--gold:#c99a5b;--line:#ecc9cf;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1618;--bg2:#2a1d20;--card:#32242a;--ink:#f6e8e8;--mute:#c9b2b6;--pink:#ec8fa4;--pink2:#9b5565;--line:#4a3339;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1f1618;--bg2:#2a1d20;--card:#32242a;--ink:#f6e8e8;--mute:#c9b2b6;--pink:#ec8fa4;--pink2:#9b5565;--line:#4a3339;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:Jost,system-ui,sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.1}
+em{font-style:italic;color:var(--pink)}
+.script{font-family:'Pinyon Script',cursive}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:70px 0;position:relative}
+.band{background:var(--bg2)}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+h2.t{font-size:clamp(32px,4.5vw,46px);margin-bottom:14px}
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;max-width:1100px;margin:0 auto;gap:16px;position:relative;z-index:5}
+nav .logo{font-size:32px}
+nav ul{display:flex;gap:30px;list-style:none;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+nav ul a{position:relative;padding-bottom:4px}
+nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--pink);transition:.3s}
+nav ul a:hover::after,nav ul a.on::after{width:100%}
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:#fff;border-radius:99px;padding:11px 22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:.3s;position:relative;overflow:hidden}
+.pill:hover{transform:translateY(-3px);box-shadow:0 10px 24px -8px var(--pink)}
+.pill::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:shine 3.5s infinite}
+@keyframes shine{to{left:140%}}
+.pill span{background:#fff;color:var(--pink);border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-size:13px}
+/* floating hearts */
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+#hearts i{position:absolute;bottom:-30px;color:var(--pink2);opacity:0;animation:rise linear forwards;font-style:normal}
+@keyframes rise{10%{opacity:.55}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+/* blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;background:var(--pink2);animation:drift 14s ease-in-out infinite alternate;z-index:0}
+@keyframes drift{to{transform:translate(40px,30px) scale(1.15)}}
+/* frames */
+.frame{--fc:#fff;--fw:14px;position:relative;padding:var(--fw);background:var(--fc);border-radius:6px;box-shadow:0 18px 40px -18px rgba(90,40,50,.5),inset 0 0 0 1px rgba(0,0,0,.08);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.frame::after{content:"";position:absolute;inset:calc(var(--fw) - 3px);border:1px solid rgba(0,0,0,.18);border-radius:2px;pointer-events:none}
+.frame.gold{--fc:linear-gradient(135deg,#e7c68f,#b98746 45%,#f0d9a8 70%,#b98746)}
+.frame.wood{--fc:linear-gradient(90deg,#9a6b45,#b88459 30%,#8a5c3a 60%,#a97648)}
+.frame.rose{--fc:linear-gradient(135deg,#f5c9d2,#e39aab)}
+.frame.black{--fc:#241c1e}
+.photo{aspect-ratio:4/5;background-color:var(--pink2);background-size:cover;background-position:center;display:grid;place-items:center;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);padding:10px;position:relative;overflow:hidden}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.45) 50%,transparent 60%);transform:translateX(-120%);animation:glare 6s infinite}
+@keyframes glare{60%,100%{transform:translateX(120%)}}
+.frame:hover{transform:translateY(-10px) rotate(0)!important;box-shadow:0 30px 50px -18px rgba(90,40,50,.55)}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:center;padding:30px 24px 80px;max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.hero h1{font-size:clamp(42px,6.2vw,70px);margin-bottom:22px}
+.hero p{max-width:380px;color:var(--mute);margin-bottom:26px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:7px 14px;font:400 11px Jost,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.chip.on,.chip:hover{background:var(--pink);color:#fff;border-color:var(--pink)}
+.note{font-size:30px;color:var(--pink);margin-top:20px;min-height:44px;transition:opacity .3s}
+.stack{position:relative;height:520px}
+.stack .frame{position:absolute;width:56%;animation:float 6s ease-in-out infinite}
+.stack .f1{left:2%;top:6%;transform:rotate(-7deg)}
+.stack .f2{right:2%;top:0;transform:rotate(6deg);animation-delay:-2s;width:48%}
+.stack .f3{left:30%;bottom:0;transform:rotate(-2deg);animation-delay:-4s;width:50%;z-index:2}
+@keyframes float{50%{margin-top:-14px}}
+.badge{position:absolute;z-index:4;right:6%;bottom:12%;width:110px;height:110px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;text-align:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 30px -8px var(--pink);animation:spin 18s linear infinite}
+.badge b{font:italic 400 24px 'Cormorant Garamond',serif;display:block;letter-spacing:0;text-transform:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .tag{position:absolute;z-index:3;font-size:28px;color:var(--pink);right:0;top:46%;transform:rotate(-8deg)}
+/* marquee */
+.marq{overflow:hidden;background:var(--pink);color:#fff;padding:14px 0;white-space:nowrap;position:relative;z-index:2}
+.marq div{display:inline-block;animation:slide 28s linear infinite;font:italic 400 22px 'Cormorant Garamond',serif}
+.marq span{margin:0 26px}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* collection */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:40px}
+.card small{display:block;margin-top:16px;font-size:10px;letter-spacing:.16em;color:var(--pink);text-transform:uppercase}
+.card b{font-weight:400;font-size:15px}
+.card .frame{--fw:10px}
+.card:nth-child(odd) .frame{transform:rotate(-1.5deg)}
+.card:nth-child(even) .frame{transform:rotate(1.5deg)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;transition:.4s;position:relative}
+.step:hover{transform:translateY(-8px);box-shadow:0 20px 40px -22px var(--pink)}
+.step .n{font:italic 400 54px 'Cormorant Garamond',serif;color:var(--pink2)}
+.step h3{font-size:24px;margin:4px 0 8px}
+.step p{font-size:14px;color:var(--mute)}
+/* about / together counter */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.counter{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;text-align:center}
+.counter input{font:400 15px Jost,sans-serif;padding:10px 14px;border-radius:99px;border:1px solid var(--line);background:var(--bg);color:var(--ink);margin:14px 0}
+.counter .big{font:italic 400 64px 'Cormorant Garamond',serif;color:var(--pink);line-height:1}
+.counter p{font-size:13px;color:var(--mute)}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+.feats div{display:flex;gap:12px}
+.ic{flex:none;width:42px;height:42px;border-radius:50%;background:var(--bg2);display:grid;place-items:center;color:var(--pink);transition:.4s}
+.feats div:hover .ic{background:var(--pink);color:#fff;transform:rotate(15deg) scale(1.1)}
+.feats h3{font:500 11px Jost,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
+.feats p{font-size:13px;color:var(--mute)}
+/* quote */
+.quote{display:flex;align-items:center;gap:36px;justify-content:center;flex-wrap:wrap}
+.quote q{font:italic 400 24px 'Cormorant Garamond',serif;max-width:460px;quotes:none}
+.who{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.av{width:54px;height:54px;border-radius:50%;background:var(--pink2)}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cta ul{list-style:none;display:grid;gap:14px;font-size:14px}
+footer{background:var(--pink);color:#fff;padding:18px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;position:relative;z-index:2}
+.rev{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s}
+.rev.in{opacity:1;transform:none}
+@media(max-width:800px){nav ul{display:none}.hero,.about,.cta{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.stack{height:440px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
+.logo img{width:58px;height:58px;border-radius:50%;display:block;box-shadow:0 8px 20px -10px var(--pink);transition:.5s}
+.logo:hover img{transform:rotate(-10deg) scale(1.08)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.tile{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:3/4;background:var(--pink2);box-shadow:0 18px 36px -20px rgba(90,40,50,.6);margin:0}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.08)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;color:#fff;font:italic 400 22px 'Cormorant Garamond',serif;background:linear-gradient(transparent,rgba(30,10,16,.78));transform:translateY(40%);opacity:0;transition:.5s}
+.tile:hover figcaption{transform:none;opacity:1}
+@media(hover:none){.tile figcaption{transform:none;opacity:1}}
+.tile.cta{display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(145deg,var(--pink),var(--pink2));color:#fff}
+.tile.cta h3{font-size:34px;margin-bottom:16px}
+.tile.cta .pill{background:#fff;color:var(--pink)}
+.tile.cta .pill span{background:var(--pink);color:#fff}
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.cert{position:relative;background:var(--card);border:2px solid var(--gold);border-radius:8px;padding:44px 34px 34px;text-align:center;box-shadow:0 30px 50px -28px rgba(90,40,50,.55);background-image:repeating-linear-gradient(45deg,transparent 0 11px,rgba(201,154,91,.08) 11px 12px)}
+.cert::before{content:"";position:absolute;inset:8px;border:1px dashed var(--gold);border-radius:4px;pointer-events:none}
+.cert h3{font-size:34px;margin:6px 0 8px}
+.cert p{font-size:14px;color:var(--mute)}
+.seal{position:relative;width:84px;height:84px;margin:0 auto 20px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#f0d9a8,var(--gold));display:grid;place-items:center;color:#fff;font-size:34px;box-shadow:0 10px 24px -8px var(--gold)}
+.seal::before{content:"";position:absolute;inset:-9px;border:2px dashed var(--gold);border-radius:50%;animation:spin 20s linear infinite}
+.seal::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.75) 50%,transparent 60%) -120% 0/200% 100% no-repeat;animation:sh 4s infinite}
+@keyframes sh{60%,100%{background-position:220% 0}}
+.stamps{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+.stamps span{border:1.5px solid var(--pink);color:var(--pink);border-radius:6px;padding:6px 12px;font:500 10px Jost,sans-serif;letter-spacing:.16em;text-transform:uppercase;transform:rotate(-3deg)}
+.stamps span:nth-child(2){transform:rotate(2.5deg)}
+.cert .sig{font-size:26px;color:var(--pink);margin-top:6px}
+.checks{list-style:none;display:grid;gap:14px;margin-top:20px;font-size:15px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li::before{content:"✓";flex:none;width:26px;height:26px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;font-size:13px}
+@media(max-width:800px){.gal{grid-template-columns:1fr 1fr}.trust{grid-template-columns:1fr}}
+.moreWrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1s cubic-bezier(.2,.8,.2,1)}
+.moreWrap.open{grid-template-rows:1fr}
+.moreWrap>div{overflow:hidden;min-height:0}
+.pols{padding:30px 12px 14px;grid-template-columns:repeat(4,1fr);margin-top:0;gap:28px}
+.pol{position:relative;margin:0;background:#fff;padding:10px 10px 0;border-radius:4px;box-shadow:0 18px 34px -16px rgba(90,40,50,.55);transform:rotate(var(--r,0));transition:transform .5s,box-shadow .5s}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in}
+.pol figcaption{padding:10px 4px 12px;text-align:center;color:#3a2a2e;font-size:21px;line-height:1.2}
+.pol::before{content:"";position:absolute;top:-12px;left:50%;width:72px;height:22px;margin-left:-36px;background:rgba(233,165,179,.7);transform:rotate(-3deg);box-shadow:0 2px 6px rgba(0,0,0,.1);z-index:1}
+.pol:hover{transform:rotate(0) translateY(-8px) scale(1.03);z-index:2;box-shadow:0 28px 44px -16px rgba(90,40,50,.6)}
+.moreWrap.open .pol{animation:pop .8s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*.09s + .25s)}
+@keyframes pop{from{opacity:0;transform:translateY(40px) scale(.9)}}
+.tile img{cursor:zoom-in}.tile figcaption{pointer-events:none}
+#lb{position:fixed;inset:0;background:rgba(25,12,16,.93);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+#lb.on{display:flex;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+#lb img{max-width:min(92vw,720px);max-height:86vh;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#lb button{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:50%;width:46px;height:46px;font-size:24px;cursor:pointer}
+#lb .x{top:calc(18px + env(safe-area-inset-top,0px));right:18px}#lb .p{left:14px;top:50%}#lb .n{right:14px;top:50%}
+@media(max-width:800px){.pols{grid-template-columns:1fr 1fr;gap:20px}}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<nav>
+  <a href="#" class="logo"><img src="images/logo.jpg" alt="Sammmyholic Prints"></a>
+  <ul><li><a class="on" href="#home">Home</a></li><li><a href="#shop">Frames</a></li><li><a href="#how">How it works</a></li><li><a href="#about">Our story</a></li></ul>
+  <a class="pill" href="#contact">Order now</a>
+</nav>
+
+<header class="hero" id="home">
+  <div class="blob" style="width:320px;height:320px;right:-80px;top:-40px"></div>
+  <div class="rev">
+    <div class="eyebrow">Picture frames for love stories</div>
+    <h1>Frame every <em>milestone</em> you celebrate together.</h1>
+    <p>Crafting memories, one print at a time. Custom picture frames for couples, made to keep your favorite moments close and beautiful.</p>
+    <div class="chips" id="chips">
+      <button class="chip on" data-m="Happy 1st Anniversary">Anniversary</button>
+      <button class="chip" data-m="Happy Monthsary">Monthsary</button>
+      <button class="chip" data-m="Happy Birthday, love!">Birthday</button>
+      <button class="chip" data-m="Memories to keep">Just because</button>
+    </div>
+    <a class="pill" href="#shop">Shop frames <span>→</span></a>
+    <div class="note script" id="note">Happy 1st Anniversary</div>
+  </div>
+  <div class="stack rev">
+    <!-- PHOTO SLOTS: put your photos in an "images" folder next to this file and rename them to match the file names below (or just edit the url) -->
+    <div class="frame f1"><div class="photo" style="background-image:url('images/hero-1.jpg')"></div></div>
+    <div class="frame f2"><div class="photo" style="background-image:url('images/hero-2.jpg')"></div></div>
+    <div class="frame f3"><div class="photo" style="background-image:url('images/hero-3.jpg')"></div></div>
+    <div class="badge"><span>Made for<b>love</b>since day one</span></div>
+    <div class="tag script">Our story, framed.</div>
+  </div>
+</header>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="eyebrow rev">The collection</div>
+    <h2 class="t rev">Frames that make every date <em>unforgettable.</em></h2>
+    <div class="cards">
+      <div class="card rev"><div class="frame"><div class="photo" style="background-image:url('images/frame-1.jpg')"></div></div><small>Anniversary</small><b>Heart Collage Frame</b></div>
+      <div class="card rev"><div class="frame"><div class="photo" style="background-image:url('images/frame-2.jpg')"></div></div><small>Travel &amp; dates</small><b>Polaroid Wall Frame</b></div>
+      <div class="card rev"><div class="frame"><div class="photo" style="background-image:url('images/frame-3.jpg')"></div></div><small>Black or white frame</small><b>Photobooth Strip Frame</b></div>
+      <div class="card rev"><div class="frame"><div class="photo" style="background-image:url('images/frame-4.jpg')"></div></div><small>Birthdays &amp; more</small><b>Gift Box Edition</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="gallery">
+  <div class="wrap">
+    <div class="eyebrow rev">Made for real couples</div>
+    <h2 class="t rev">Little pieces of <em>their love story.</em></h2>
+    <div class="gal">
+      <figure class="tile rev"><img src="images/gal-1.jpg" alt="Memories to keep" loading="lazy"><figcaption>Memories to keep</figcaption></figure>
+      <figure class="tile rev"><img src="images/gal-2.jpg" alt="Monthsary &amp; anniversary hearts" loading="lazy"><figcaption>Monthsary &amp; anniversary hearts</figcaption></figure>
+      <figure class="tile rev"><img src="images/gal-3.jpg" alt="Happy Anniversary, my love" loading="lazy"><figcaption>Happy Anniversary, my love</figcaption></figure>
+      <figure class="tile rev"><img src="images/gal-4.jpg" alt="Happy 4th Monthsary" loading="lazy"><figcaption>Happy 4th Monthsary</figcaption></figure>
+      <figure class="tile rev"><img src="images/gal-5.jpg" alt="Happy 11th Anniversary" loading="lazy"><figcaption>Happy 11th Anniversary</figcaption></figure>
+      <figure class="tile cta rev"><div><h3>Your love story is next.</h3><a class="pill" href="#contact">Order yours <span>→</span></a></div></figure>
+    </div>
+    <div class="moreWrap" id="moreWrap"><div>
+      <div class="gal pols">
+        <figure class="pol" style="--i:0;--r:-2.5deg"><img src="images/more-1.jpg" alt="Happy 24th Monthsary" loading="lazy"><figcaption class="script">Happy 24th Monthsary</figcaption></figure>
+        <figure class="pol" style="--i:1;--r:2deg"><img src="images/more-2.jpg" alt="Happy 11th Anniversary" loading="lazy"><figcaption class="script">Happy 11th Anniversary</figcaption></figure>
+        <figure class="pol" style="--i:2;--r:-1.5deg"><img src="images/more-3.jpg" alt="Don’t forget to smile" loading="lazy"><figcaption class="script">Don’t forget to smile</figcaption></figure>
+        <figure class="pol" style="--i:3;--r:2.5deg"><img src="images/more-4.jpg" alt="A little piece of home" loading="lazy"><figcaption class="script">A little piece of home</figcaption></figure>
+        <figure class="pol" style="--i:4;--r:-2deg"><img src="images/more-5.jpg" alt="Memories to keep" loading="lazy"><figcaption class="script">Memories to keep</figcaption></figure>
+        <figure class="pol" style="--i:5;--r:1.5deg"><img src="images/more-6.jpg" alt="Happy birthday, Papa" loading="lazy"><figcaption class="script">Happy birthday, Papa</figcaption></figure>
+        <figure class="pol" style="--i:6;--r:-2.5deg"><img src="images/more-7.jpg" alt="Happy Monthsary, Mommy" loading="lazy"><figcaption class="script">Happy Monthsary, Mommy</figcaption></figure>
+      </div>
+    </div></div>
+    <div style="text-align:center;margin-top:34px"><button class="pill" id="seeMore" style="border:0;cursor:pointer;font-family:inherit">See more <span>↓</span></button></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow rev">How it works</div>
+    <h2 class="t rev">Three steps to <em>your keepsake.</em></h2>
+    <div class="steps">
+      <div class="step rev"><div class="n">01</div><h3>Choose your frame</h3><p>Pick the style and size that fits your milestone.</p></div>
+      <div class="step rev"><div class="n">02</div><h3>Send your photo</h3><p>Message us your favorite pictures, your message and the date.</p></div>
+      <div class="step rev"><div class="n">03</div><h3>We craft &amp; deliver</h3><p>Packed with care and shipped anywhere in the Philippines.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="rev">
+      <div class="eyebrow">Our story</div>
+      <h2 class="t">Because your love deserves a <em>place on the wall.</em></h2>
+      <p style="color:var(--mute);font-size:14px">Sammmyholic Prints began with one simple idea: turn your best memories into something you can see every day.</p>
+      <div class="feats">
+        <div><span class="ic">✦</span><span><h3>Black &amp; white frames</h3><p>Clean, glass-front frames.</p></span></div>
+        <div><span class="ic">♡</span><span><h3>Fully personalized</h3><p>Your photos, message and date.</p></span></div>
+        <div><span class="ic">❀</span><span><h3>Gift-ready box</h3><p>Packed with care for gifting.</p></span></div>
+        <div><span class="ic">✈</span><span><h3>Nationwide</h3><p>Delivered across the PH.</p></span></div>
+      </div>
+    </div>
+    <div class="counter rev">
+      <div class="eyebrow">Days together</div>
+      <label for="d" style="font-size:13px;color:var(--mute)">When did your story begin?</label><br>
+      <input type="date" id="d">
+      <div class="big" id="days">0</div>
+      <p id="msg">days of love. Time to frame a memory!</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="trust">
+  <div class="wrap trust">
+    <div class="cert rev">
+      <div class="seal">✓</div>
+      <div class="eyebrow">Officially registered</div>
+      <h3>Sammmyholic Printing Services</h3>
+      <p>A registered small business you can trust.</p>
+      <div class="stamps"><span>DTI Registered</span><span>BIR Registered</span></div>
+      <div class="sig script">Crafting memories, one print at a time.</div>
+    </div>
+    <div class="rev">
+      <div class="eyebrow">Shop with confidence</div>
+      <h2 class="t">A real business, <em>made with care.</em></h2>
+      <ul class="checks">
+        <li>Registered with the DTI and the BIR since 2024</li>
+        <li>Receipt or invoice for every purchase</li>
+        <li>Real people behind every frame. Message us anytime on Instagram</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap quote rev">
+    <span class="script" style="font-size:70px;color:var(--pink2)">“</span>
+    <q>We gave this to each other for our 3rd anniversary and cried a little. It’s now the first thing you see in our home.</q>
+    <div class="who"><span class="av"></span><span>Happy Couple<br><small style="color:var(--mute)">Anniversary frame</small></span></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="blob" style="width:260px;height:260px;left:-60px;bottom:-40px"></div>
+  <div class="wrap cta">
+    <div class="rev">
+      <h2 class="t">Ready to frame <em>your forever?</em></h2>
+      <p style="color:var(--mute);font-size:14px;margin-bottom:22px">Message us on Instagram to start your custom order.</p>
+      <a class="pill" href="https://www.instagram.com/sammmyholic.ph/">Message us <span>→</span></a>
+    </div>
+    <ul class="rev">
+      <li>✉ sammmyhernandez@gmail.com</li>
+      <li>⌖ Philippines · Nationwide shipping</li>
+      <li>◎ @sammmyholic.ph on Instagram</li>
+    </ul>
+  </div>
+</section>
+
+<footer><span>© 2026 Sammmyholic Printing Services. All rights reserved.</span><a href="https://www.instagram.com/sammmyholic.ph/">Instagram</a></footer>
+
+<script>
+// scroll reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+// marquee
+const words=['Anniversary','Monthsary','Birthday','Memories to keep','Heart collage','Polaroid wall','Gift ready','Forever'];
+document.getElementById('mq').innerHTML=[...words,...words].map(w=>'<span>'+w+' ♡</span>').join('').repeat(2);
+// milestone chips
+const note=document.getElementById('note');
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');
+  note.style.opacity=0;setTimeout(()=>{note.innerHTML=c.dataset.m;note.style.opacity=1},250);
+});
+// floating hearts
+const H=document.getElementById('hearts');
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  setInterval(()=>{const i=document.createElement('i');i.textContent=['♡','♥','✦'][Math.random()*3|0];
+  i.style.left=Math.random()*100+'%';i.style.fontSize=10+Math.random()*18+'px';
+  i.style.animationDuration=9+Math.random()*8+'s';H.appendChild(i);setTimeout(()=>i.remove(),17000)},900);
+}
+// 3D tilt on frames
+document.querySelectorAll('.card .frame').forEach(f=>{
+  f.addEventListener('mousemove',e=>{const r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  f.style.transform='perspective(700px) rotateY('+x*14+'deg) rotateX('+-y*14+'deg) translateY(-8px)'});
+  f.addEventListener('mouseleave',()=>f.style.transform='');
+});
+// days together
+const d=document.getElementById('d');
+d.onchange=()=>{const n=Math.floor((Date.now()-new Date(d.value))/864e5);
+  if(n<0||isNaN(n))return;
+  let c=0;const t=setInterval(()=>{c+=Math.max(1,Math.ceil(n/40));if(c>=n){c=n;clearInterval(t)}document.getElementById('days').textContent=c.toLocaleString()},25);
+  document.getElementById('msg').textContent=n>=365?'days of love. That’s a milestone worth framing!':'days of love. Every day deserves a frame!'};
+// see more + lightbox
+const mw=document.getElementById('moreWrap'),sb=document.getElementById('seeMore');
+sb.onclick=()=>{const o=mw.classList.toggle('open');sb.firstChild.nodeValue=o?'See less ':'See more ';sb.querySelector('span').textContent=o?'↑':'↓'};
+const lb=document.createElement('div');lb.id='lb';
+lb.innerHTML='<button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous">‹</button><img alt=""><button class="n" aria-label="Next">›</button>';
+document.body.appendChild(lb);
+const imgs=[...document.querySelectorAll('.tile img,.pol img')];let k=0;
+const show=i=>{k=(i+imgs.length)%imgs.length;lb.querySelector('img').src=imgs[k].src;lb.classList.add('on')};
+imgs.forEach((im,i)=>im.addEventListener('click',()=>show(i)));
+lb.onclick=e=>{if(e.target.closest('.p'))show(k-1);else if(e.target.closest('.n'))show(k+1);else lb.classList.remove('on')};
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1)});
+</script>
+</body>
+</html>
